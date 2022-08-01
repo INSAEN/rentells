@@ -7,16 +7,21 @@ import { FcLikePlaceholder } from "react-icons/fc";
 const PropertyCard = (props) => {
   var [isLiked, setLiked] = React.useState(false);
   return (
-    <div className="w-80 h-[373px] bg-secondary rounded-2xl shadow-md font-raleway">
+    <div className="w-80 bg-secondary rounded-2xl shadow-md font-raleway">
       <div className="flex flex-col">
-        <div>
+        <div className="flex flex-col justify-end ">
           <img src={props.imgUrl} alt="" className="rounded-t-2xl" />
+          {props.isPopular && (
+                  <div className="bg-accentColor text-white p-0.5 w-16 flex items-center justify-center shadow-2xl absolute rounded-r-xl mb-2">
+                    Popular
+                  </div>
+                )}
         </div>
         <div className="p-2">
           <div className="border-b-[1px] p-2">
             <div className="flex justify-between items-center">
               <div>
-              {props.isPopular?<div className="bg-accentColor text-white font-raleway p-0.5 w-16 flex items-center justify-center rounded-full shadow-2xl">popular</div>:<div className="h-[30px]"></div>}
+                
                 <div>
                   <span className="text-accentColor font-bold">
                     ${props.cost}
@@ -28,9 +33,7 @@ const PropertyCard = (props) => {
               </div>
               <div
                 className="rounded-full p-2 border-2"
-                onClick={() => 
-                  setLiked(!isLiked)
-                  }
+                onClick={() => setLiked(!isLiked)}
               >
                 {" "}
                 {isLiked ? <FcLike /> : <FcLikePlaceholder />}
