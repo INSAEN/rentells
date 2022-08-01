@@ -64,8 +64,9 @@ export const RentPage = () => {
             min={0}
             max={5000}
             defaultValue={price}
-            style={{}}
-            
+            trackStyle={{ backgroundColor: "#7367F7" }}
+            handleStyle={{ backgroundColor: "#7367F7", borderColor: "#F8F7FD" }}
+
             onChange={(value) => {
               setPrice(value);
             }}
